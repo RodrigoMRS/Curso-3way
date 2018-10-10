@@ -1,0 +1,47 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</h:head>
+<h:body>
+
+	<div class="jumbotron text-center">
+		<h1>
+		<h:outputText value="#{faces.nomeCompleto}"/>
+		 </h1>
+		<h2>
+		Idade: <h:outputText value="#{faces.idade}" />
+		<br />
+		Sexo: <h:outputText value="#{faces.sexo}" />
+		</h2>
+	</div>
+
+
+	<h:form>
+
+		<p:panel header="Teste" style="width:50%">
+			Nome:<h:outputText value="#{faces.nomeCompleto}" />
+			<br />
+			Idade: <h:outputText value="#{faces.idade}" />
+			<br />
+			Sexo: <h:outputText value="#{faces.sexo}" />
+			<br />
+			<br />
+			<p:button value="Buscar">
+			</p:button>
+		</p:panel>
+
+
+
+	</h:form>
+</h:body>
+
+</html>
