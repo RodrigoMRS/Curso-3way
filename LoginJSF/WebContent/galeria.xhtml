@@ -1,0 +1,18 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+</h:head>
+<h:body>
+
+	<p:galleria value="#{imagesView.images}" var="image" panelWidth="900"
+		panelHeight="680" showCaption="true" effectSpeed="3000">
+		<p:graphicImage name="imagens/nature/#{image}"
+			alt="Image Description for #{image}" title="#{image}" />
+	</p:galleria>
+</h:body>
+
+</html>

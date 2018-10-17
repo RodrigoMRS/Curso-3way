@@ -1,0 +1,50 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+</h:head>
+<h:body>
+
+	<h:form>
+		<p:messages id="messages" showDetail="true" autoUpdate="true"
+			closable="true" />
+
+		<p:commandButton value="Mensagem Informativa"
+			actionListener="#{mensagens.info}" />
+		<p:commandButton value="Mensagem de Erro"
+			actionListener="#{mensagens.erro}" />
+		<p:commandButton value="Mensagem de Aviso"
+			actionListener="#{mensagens.aviso}" />
+		<p:commandButton value="Mensagem Fatal"
+			actionListener="#{mensagens.fatal}" />
+
+	</h:form>
+
+	<h:form>
+		<h:panelGrid id="panel" columns="3" cellpadding="5" style="">
+			<p:outputLabel value="nome" for="nome" />
+			<p:inputText id="nome" required="true" />
+			<p:message for="nome" />
+
+			<p:outputLabel value="sobrenome" for="sobrenome" />
+			<p:inputText id="sobrenome" required="true" />
+			<p:message for="sobrenome" display="text" />
+
+			<p:outputLabel value="idade" for="idade" />
+			<p:inputText id="idade" required="true" />
+			<p:message for="idade" display="icon" />
+
+			<p:outputLabel value="telefone" for="telefone" />
+			<p:inputNumber  id="telefone" required="true" />
+			<p:message for="telefone" display="tooltip" />
+
+			<input type="submit" value="enviar" />
+			
+		</h:panelGrid>
+	</h:form>
+</h:body>
+
+</html>
