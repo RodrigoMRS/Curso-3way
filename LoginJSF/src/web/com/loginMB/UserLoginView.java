@@ -37,13 +37,16 @@ public class UserLoginView {
          
         if(username != null && username.equals("admin") && password != null && password.equals("admin")) {
             loggedIn = true;
-            message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", username);
+            message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Bem Vindo", username);
         } else {
             loggedIn = false;
-            message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Loggin Error", "Invalid credentials");
+            message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erro ao logar no Sistema", "Credenciais Inválidas");
         }
          
-        FacesContext.getCurrentInstance().addMessage(null, message);
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.addMessage(null, message);
+        context.getExternalContext().getFlash().setKeepMessages(true);
+     //   FacesContext.getCurrentInstance().addMessage(null, message);
         PrimeFaces.current().ajax().addCallbackParam("loggedIn", loggedIn);
         
         try {
