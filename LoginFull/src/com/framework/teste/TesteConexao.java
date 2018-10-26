@@ -10,9 +10,10 @@ public class TesteConexao {
 
 		UsuarioDAO usuarioDao = new UsuarioDAO();
 		Usuario user = new Usuario();
-		user.setNomeUsuario("Rodrigo");
-		user.setSenha("1608");
-		usuarioDao.inserirUsuario(user);
+		user.setNomeUsuario("admin");
+		user.setSenha("9090");
+		user.setMatricula("20204433");
+		usuarioDao.inserirUsuarioCard(user);
 	}
 
 }

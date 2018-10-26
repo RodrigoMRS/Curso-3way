@@ -16,8 +16,9 @@ public class LoginManagedBean {
   
       private UsuarioDAO usuarioDAO = new UsuarioDAO();
       private Usuario usuario = new Usuario();
+      
        
-      public String envia() {
+      public String enviar() {
              
             usuario = usuarioDAO.getUsuario(usuario.getNomeUsuario(), usuario.getSenha());
             if (usuario == null) {

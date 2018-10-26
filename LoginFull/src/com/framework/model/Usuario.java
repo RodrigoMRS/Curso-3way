@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -12,6 +14,7 @@ import javax.persistence.TemporalType;
 public class Usuario {
        
       @Id
+      @GeneratedValue(strategy=GenerationType.IDENTITY)
       @Column(name="id", nullable=false, unique=true)
       private int id;
        
@@ -24,6 +27,9 @@ public class Usuario {
       @Column(name="lastAccess", unique=true)
       @Temporal(TemporalType.DATE)
       private Date ultimoAcesso;
+      
+      @Column(name="matricula", unique=true)
+      private String matricula;
        
       public String getNomeUsuario() {
             return nomeUsuario;
@@ -48,4 +54,20 @@ public class Usuario {
       public void setUltimoAcesso(Date ultimoAcesso) {
             this.ultimoAcesso = ultimoAcesso;
       }
+
+	public String getMatricula() {
+		return matricula;
+	}
+
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
  }
