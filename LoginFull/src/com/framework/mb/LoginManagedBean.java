@@ -7,39 +7,42 @@ import javax.faces.context.FacesContext;
 
 import com.framework.dao.UsuarioDAO;
 import com.framework.model.Usuario;
-  
 
-  
 @ManagedBean(name = "LoginMB")
 @ViewScoped
 public class LoginManagedBean {
-  
-      private UsuarioDAO usuarioDAO = new UsuarioDAO();
-      private Usuario usuario = new Usuario();
-      
-       
-      public String enviar() {
+
+	private UsuarioDAO usuarioDAO = new UsuarioDAO();
+	private Usuario usuario = new Usuario();
+
+	public String enviar() {
              
             usuario = usuarioDAO.getUsuario(usuario.getNomeUsuario(), usuario.getSenha());
+            FacesContext context = FacesContext.getCurrentInstance();
             if (usuario == null) {
                   usuario = new Usuario();
-                  FacesContext.getCurrentInstance().addMessage(
-                             null,
-                             new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuário não encontrado!",
-                                         "Erro no Login!"));
+                  context.addMessage( null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuário não encontrado!", "Erro no Login!"));
+                  context.validationFailed();
+                  context.getExternalContext().getSessionMap().put("logado", false);
                   return null;
             } else {
-                  return "/inicial";
+            	context.getExternalContext().getSessionMap().put("logado", true);
+                  return "/restrito/main.xhtml?faces-redirect=true";
             }
              
              
       }
-  
-      public Usuario getUsuario() {
-            return usuario;
-      }
-  
-      public void setUsuario(com.framework.model.Usuario usuario) {
-            this.usuario = usuario;
-      }
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(com.framework.model.Usuario usuario) {
+		this.usuario = usuario;
+	}
+	public String logout() {
+		FacesContext context = FacesContext.getCurrentInstance();
+		context.getExternalContext().getSessionMap().remove("logado");
+		return "/login/login.xhtml?faces-redirect=true";
+	}
 }

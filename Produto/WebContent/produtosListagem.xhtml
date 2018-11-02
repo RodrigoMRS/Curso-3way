@@ -1,0 +1,77 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<title>Listagem de Produtos</title>
+	<style type="text/css">
+		.tableUpdated {
+			width: 90% !important;
+			margin: 17px 58px 0 !important;
+		}
+		
+		.btnSpace {
+			margin: 17px;
+		}
+	</style>
+
+</h:head>
+
+<h:body>
+	<h:form>
+		<h:outputText
+			value="Login efetuado com sucesso! Bem vindo ao sistema!"></h:outputText>
+	</h:form>
+
+	<center>
+		<h2>
+			<h:outputText value="Lista de Produtos cadastrados" />
+		</h2>
+	</center>
+	<h:form >
+		<h:commandButton action="#{LoginMB.logout}" value="Sair" styleClass="btn btn-primary">
+		</h:commandButton>
+	</h:form>
+	<h:form id="usuarioForm">
+		<h:dataTable id="usuarioTable" 
+			value="#{produtoManagedBean.listarTodosProdutos()}" var="produtos"
+			styleClass="table table-striped table-bordered tableUpdated">
+			<h:column>
+				<f:facet name="header">Id</f:facet>
+				<h:outputText value="#{produtos.cod}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+				<h:outputText value="#{produtos.descricao}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Matrícula</f:facet>
+				<h:outputText value="#{produtos.fornecedor}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Senha</f:facet>
+				<h:outputText value="#{produtos.valor}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Editar</f:facet>
+				<h:commandButton action="#{produtoManagedBean.paginaEditar(produtos)}"
+					value="Atualizar" styleClass="btn btn-primary">
+					<f:param name="selectedSchoolId" value="#{produtos.cod}" />
+				</h:commandButton>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Delete</f:facet>
+				<h:commandButton action="#{produtoManagedBean.excluirProdutoDb(produtos)}"
+					value="Deletar" styleClass="btn btn-danger" />
+			</h:column>
+		</h:dataTable>
+		<center>
+			<h:commandButton action="novoUsuario.xhtml?faces-redirect=true"
+				value="Adicionar novo Usuário" styleClass="btn btn-success btnSpace" />
+		</center>
+	</h:form>
+
+
+</h:body>
+</html>

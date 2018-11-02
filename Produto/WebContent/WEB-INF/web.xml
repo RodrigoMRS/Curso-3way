@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
-  <display-name>LoginFull</display-name>
+  <display-name>Produto</display-name>
   <welcome-file-list>
-		<welcome-file>/login/login.xhtml</welcome-file>
+		<welcome-file>faces/produtosListagem.xhtml</welcome-file>
 	</welcome-file-list>
 	<error-page>
     <exception-type>javax.faces.application.ViewExpiredException</exception-type>
-    <location>/login/login.xhtml</location>
+    <location>/produtosListagem.xhtml</location>
   </error-page>
-  <filter>
-    <filter-name>LoginFilter</filter-name>
-    <filter-class>com.framework.filter.LoginFilter</filter-class>
-  </filter>
-  <filter-mapping>
-    <filter-name>LoginFilter</filter-name>
-    <url-pattern>/restrito/*</url-pattern>
-  </filter-mapping>
-	<session-config>
-	<session-timeout>2</session-timeout>
-	</session-config>
+<!--   <filter> -->
+<!--     <filter-name>LoginFilter</filter-name> -->
+<!--     <filter-class>com.framework.filter.LoginFilter</filter-class> -->
+<!--   </filter> -->
+<!--   <filter-mapping> -->
+<!--     <filter-name>LoginFilter</filter-name> -->
+<!--     <url-pattern>/restrito/*</url-pattern> -->
+<!--   </filter-mapping> -->
+<!-- 	<session-config> -->
+<!-- 	<session-timeout>2</session-timeout> -->
+<!-- 	</session-config> -->
 	<servlet>
 		<servlet-name>Faces Servlet</servlet-name>
 		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>

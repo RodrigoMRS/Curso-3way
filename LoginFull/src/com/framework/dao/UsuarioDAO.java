@@ -30,6 +30,13 @@ public class UsuarioDAO {
                   return null;
             }
       }
+      public Usuario getUsuario(int id) {
+    	  try {
+			return em.find(Usuario.class, id);
+		} catch (Exception e) {
+			return null;
+		}
+      }
       public Usuario getUsuarioCard(String nomeUsuario, String matricula) {
     	  
           try {
@@ -95,5 +102,19 @@ public class UsuarioDAO {
   				return null;
   			}
   	}
+      public Boolean editarUsuario(Usuario usuario) {
+    	  if(!transaction.isActive()) {
+          	transaction.begin();
+          }
+      	try {
+      			em.merge(usuario);
+                    em.persist(usuario);
+                    transaction.commit();
+                    return true;
+              } catch (Exception e) {
+                    e.printStackTrace();
+                    return false;
+              }
+      }
   
 }
