@@ -6,12 +6,14 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
 import com.framework.dao.UsuarioDAO;
 import com.framework.model.Usuario;
 
 @ManagedBean
+@ViewScoped
 public class UsuarioManagedBean {
 	private UsuarioDAO usuarioDao = new UsuarioDAO();
 	private Usuario usuario = new Usuario();
@@ -50,7 +52,7 @@ public class UsuarioManagedBean {
 			context.getExternalContext().getFlash().setKeepMessages(true);
 			return "/restrito/novoUsuario.xhtml?faces-redirect=true";
 		}
-		return "/restrito/main.xhtml?faces-redirect=true";
+		return "/restrito/listaUsuarios.xhtml?faces-redirect=true";
 		
 	}
 	public String paginaEditar(Usuario usuario) {

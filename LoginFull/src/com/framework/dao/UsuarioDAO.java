@@ -94,7 +94,7 @@ public class UsuarioDAO {
       
       @SuppressWarnings("unchecked")
   	public List listarTodos(){
-  			Query  queryobj = em.createQuery("SELECT u FROM Usuario u");
+  			Query  queryobj = em.createQuery("SELECT u FROM Usuario u order by id");
   			List usuariosList = queryobj.getResultList();
   			if(usuariosList != null && usuariosList.size() > 0) {
   				return usuariosList;

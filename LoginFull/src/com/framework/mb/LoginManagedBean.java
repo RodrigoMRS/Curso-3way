@@ -23,11 +23,10 @@ public class LoginManagedBean {
                   usuario = new Usuario();
                   context.addMessage( null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuário não encontrado!", "Erro no Login!"));
                   context.validationFailed();
-                  context.getExternalContext().getSessionMap().put("logado", false);
                   return null;
             } else {
             	context.getExternalContext().getSessionMap().put("logado", true);
-                  return "/restrito/main.xhtml?faces-redirect=true";
+                  return "/restrito/listaUsuarios.xhtml?faces-redirect=true";
             }
              
              

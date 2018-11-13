@@ -1,28 +1,19 @@
 <!DOCTYPE HTML>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://primefaces.org/ui">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	 xmlns:h="http://java.sun.com/jsf/html" 
+	 xmlns:f="http://xmlns.jcp.org/jsf/core" 
+	 xmlns:p="http://primefaces.org/ui"
+	 xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
-    <h:outputStylesheet library="css" name="bootstrap.min.css" />
-    <title>JSF JPA Crud</title>
-    <style type="text/css">
-        .btnWidth {
-            width: 80px;
-        }
-        .col-sm-updated {
-    		padding-top: 7px;    		
-        }
-         .col-sm-updated a {
-         	margin-left: 30px;
-        	text-decoration: none !important;
-        }
-        .col-sm-27 {
-        	width: 27% !important;
-        }
-    </style>
+    
 </h:head>
 <h:body>
-	<center><h2><h:outputText value="Gerar Novo Usuário"/></h2></center>
-    <h:form id="schoolBeanForm" styleClass="form-horizontal"> 
-           <p:messages class="text text-danger"></p:messages>
+	
+	<ui:composition template="/restrito/template/layout.xhtml">
+		<ui:define name="content">
+			<center><h2><h:outputText value="Incluir Usuário"/></h2></center>
+    <h:form id="schoolBeanForm" styleClass="form-horizontal" > 
+           <h:messages class="text text-danger"/>
       	<div class="form-group">
             <h:outputLabel styleClass="control-label col-sm-4">Id:</h:outputLabel>
             <div class="col-sm-4"><h:outputText value="Auto gerado pelo sistema :)" styleClass="text text-success" /></div>
@@ -53,9 +44,12 @@
             <div class="col-sm-4">
                 <div class="col-sm-2"><h:commandButton value="Salvar" action="#{usuarioManagedBean.incluirUsuarioDb(usuarioManagedBean.usuario)}" styleClass="btn btn-success btnWidth" /></div>
                 <div class="col-sm-1" />
-                <div class="col-sm-updated"><h:outputLink value="main.xhtml">Ver lista de usuários</h:outputLink></div>
+                <div class="col-sm-updated"><h:outputLink value="listaUsuarios.xhtml">Ver lista de usuários</h:outputLink></div>
             </div>
         </div>
     </h:form>
+		</ui:define>
+	</ui:composition>
+	
 </h:body>
 </html>

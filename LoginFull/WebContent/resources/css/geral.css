@@ -1,0 +1,29 @@
+.tableUpdated {
+	width: 90% !important;
+	margin: 17px 58px 0 !important;
+}
+
+.btnSpace {
+	margin: 17px;
+}
+.ui-panelgrid td, .ui-panelgrid tr{
+	border-style: none !important;
+}
+.int-box{
+	margin-top: 200px;
+	border-style: 1px solid;
+}
+.botao-enviar{
+	align:center;
+}
+.corpo-content{
+	margin-top:50px;
+}
+#footer{
+	position:fixed;
+	bottom: 0;
+	background: #babdb6;
+	width: 100%;
+	text-align: left;
+	margin-left: 0px;
+}
